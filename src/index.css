@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+
+  --primary: #124734;
+  --primary-dark: #0b3527;
+  --secondary: #78866b;
+  --accent: #c9a55a;
+
+  --ivory: #f7f4ec;
+  --ivory-dark: #ece7da;
+  --white: #ffffff;
+
+  --charcoal: #1d2923;
+  --muted: #68736c;
+
+  --glass: rgba(255, 255, 255, 0.65);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+
+  --border: rgba(18, 71, 52, 0.1);
+
+  --shadow-sm: 0 8px 25px rgba(20, 55, 40, 0.08);
+  --shadow-md: 0 18px 45px rgba(20, 55, 40, 0.12);
+  --shadow-lg: 0 30px 70px rgba(20, 55, 40, 0.16);
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+
+  color: var(--charcoal);
+  background: var(--ivory);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(201, 165, 90, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(120, 134, 107, 0.12),
+      transparent 30%
+    ),
+    var(--ivory);
+
+  color: var(--charcoal);
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}

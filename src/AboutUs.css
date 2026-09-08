@@ -1,33 +1,80 @@
-.about-us-container {
-    width: 1000px;
-    /* margin: 0 auto; */
-    /* padding: 20px; */
-    /* background-color: red; */
-    text-align: justify;
-  }
-  
-  .about-us-heading {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .about-us-description {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
-  .about-us-content {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  .plant_logo_right{
-    text-align: right;
-  }
+import React from 'react';
+import './AboutUs.css';
 
-  .plant_logo_left{
-    text-align: left;
-  }
+function AboutUs() {
+  return (
+    <section className="about-modern">
+
+      <div className="about-header">
+        <div>
+          <span className="section-label">
+            OUR PHILOSOPHY
+          </span>
+
+          <h2>
+            More than plants.
+            <br />
+            <em>A greener way to live.</em>
+          </h2>
+        </div>
+
+        <p>
+          We believe that bringing nature indoors should feel
+          effortless, inspiring, and personal. Every plant in our
+          collection is selected to help you create a calmer and
+          more beautiful everyday environment.
+        </p>
+      </div>
+
+      <div className="about-grid">
+
+        <div className="about-card large-card">
+          <span className="card-number">01</span>
+
+          <div>
+            <h3>Thoughtfully Selected</h3>
+
+            <p>
+              From resilient indoor plants to fragrant botanical
+              favorites, every collection is curated with purpose.
+            </p>
+          </div>
+        </div>
+
+        <div className="about-card">
+          <span className="card-icon">✦</span>
+
+          <h3>Healthy Spaces</h3>
+
+          <p>
+            Plants that add character, freshness and a stronger
+            connection to nature.
+          </p>
+        </div>
+
+        <div className="about-card">
+          <span className="card-icon">◌</span>
+
+          <h3>Easy to Grow</h3>
+
+          <p>
+            Whether you're experienced or just beginning, there is
+            something here for every plant parent.
+          </p>
+        </div>
+
+      </div>
+
+      <div className="about-bottom">
+        <div className="quote-mark">“</div>
+
+        <p>
+          A home grows warmer when nature becomes part of the story.
+        </p>
+      </div>
+
+    </section>
+  );
+}
+
+export default AboutUs;

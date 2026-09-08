@@ -4,101 +4,226 @@ import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
-    const cart = useSelector(state => state.cart.items);
-    const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
+  const parseItemCost = (cost) => {
+    return parseInt(cost.replace('$', ''), 10);
+  };
 
-    const parseItemCostToInteger = (itemCost) => {
-        /*
-            Remove currency symbol before multiplication.
-            Otherwise, NaN returned.
-            Improve in future: Use regex to remove all possible currency symbols?
-        */
-        return parseInt(itemCost.replace('$', ''), 10);
-    };
+  const calculateTotalAmount = () => {
+    return cart.reduce((total, item) => {
+      return total + parseItemCost(item.cost) * item.quantity;
+    }, 0);
+  };
 
-    // Calculate total amount for all products in the cart
-    const calculateTotalAmount = () => {
-        let totalCost = 0;
-
-        cart.forEach((item) => {
-            const itemCost = parseItemCostToInteger(item.cost);
-            totalCost += itemCost * item.quantity;
-        });
-
-        return totalCost;
-    };
-
-    const handleContinueShopping = (e) => {
-        onContinueShopping(e);
-    };
-
-    const handleCheckoutShopping = (e) => {
-        alert('Functionality to be added for future reference');
-    };
-
-    const handleIncrement = (item) => {
-        const updatedItem = { ...item };
-        updatedItem.quantity++;
-        dispatch(updateQuantity(updatedItem));
-    };
-
-    const handleDecrement = (item) => {
-        const updatedItem = { ...item };
-
-        if (updatedItem.quantity == 1) {
-            // Remove item if number of items gets decremented to 0
-            dispatch(removeItem(updatedItem));
-        } else {
-            updatedItem.quantity--;
-            dispatch(updateQuantity(updatedItem));
-        }
-    };
-
-    const handleRemove = (item) => {
-        dispatch(removeItem(item));
-    };
-
-    // Calculate total cost based on quantity for an item
-    const calculateTotalCost = (item) => {
-        let totalCost = 0;
-        const itemCost = parseItemCostToInteger(item.cost);
-        totalCost = item.quantity * itemCost;
-
-        return totalCost;
-    };
-
-    return (
-        <div className="cart-container">
-            <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
-            <div>
-                {cart.map(item => (
-                    <div className="cart-item" key={item.name}>
-                        <img className="cart-item-image" src={item.image} alt={item.name} />
-                        <div className="cart-item-details">
-                            <div className="cart-item-name">{item.name}</div>
-                            <div className="cart-item-cost">{item.cost}</div>
-                            <div className="cart-item-quantity">
-                                <button className="cart-item-button cart-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
-                                <span className="cart-item-quantity-value">{item.quantity}</span>
-                                <button className="cart-item-button cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
-                            </div>
-                            <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
-                            <button className="cart-item-delete" onClick={() => handleRemove(item)}>Delete</button>
-                        </div>
-                    </div>
-                ))}
-            </div>
-            <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
-            <div className="continue_shopping_btn">
-                <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
-                <br />
-                <button className="get-started-button1" onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
-            </div>
-        </div>
+  const handleIncrement = (item) => {
+    dispatch(
+      updateQuantity({
+        ...item,
+        quantity: item.quantity + 1,
+      })
     );
+  };
+
+  const handleDecrement = (item) => {
+    if (item.quantity === 1) {
+      dispatch(removeItem(item));
+    } else {
+      dispatch(
+        updateQuantity({
+          ...item,
+          quantity: item.quantity - 1,
+        })
+      );
+    }
+  };
+
+  const calculateItemTotal = (item) => {
+    return parseItemCost(item.cost) * item.quantity;
+  };
+
+  return (
+    <div className="cart-page">
+
+      <div className="cart-wrapper">
+
+        <div className="cart-header">
+
+          <div>
+            <span className="section-label">
+              YOUR SELECTION
+            </span>
+
+            <h1>
+              Your Plant <em>Collection</em>
+            </h1>
+          </div>
+
+          <button
+            className="continue-button"
+            onClick={onContinueShopping}
+          >
+            ← Continue Shopping
+          </button>
+
+        </div>
+
+
+        {cart.length === 0 ? (
+
+          <div className="empty-cart">
+            <div className="empty-icon">🌿</div>
+
+            <h2>Your collection is empty</h2>
+
+            <p>
+              Discover plants that bring a little more
+              nature into your everyday space.
+            </p>
+
+            <button
+              onClick={onContinueShopping}
+              className="shop-now-button"
+            >
+              Explore Plants
+            </button>
+          </div>
+
+        ) : (
+
+          <div className="cart-layout">
+
+            <div className="cart-items">
+
+              {cart.map((item) => (
+
+                <div
+                  className="cart-item"
+                  key={item.name}
+                >
+
+                  <img
+                    className="cart-item-image"
+                    src={item.image}
+                    alt={item.name}
+                  />
+
+                  <div className="cart-item-details">
+
+                    <div className="cart-item-top">
+
+                      <div>
+                        <h3 className="cart-item-name">
+                          {item.name}
+                        </h3>
+
+                        <p className="cart-item-cost">
+                          {item.cost} each
+                        </p>
+                      </div>
+
+                      <button
+                        className="cart-item-delete"
+                        onClick={() =>
+                          dispatch(removeItem(item))
+                        }
+                      >
+                        Remove
+                      </button>
+
+                    </div>
+
+
+                    <div className="cart-item-bottom">
+
+                      <div className="cart-item-quantity">
+
+                        <button
+                          className="cart-item-button"
+                          onClick={() =>
+                            handleDecrement(item)
+                          }
+                        >
+                          −
+                        </button>
+
+                        <span className="cart-item-quantity-value">
+                          {item.quantity}
+                        </span>
+
+                        <button
+                          className="cart-item-button"
+                          onClick={() =>
+                            handleIncrement(item)
+                          }
+                        >
+                          +
+                        </button>
+
+                      </div>
+
+                      <div className="cart-item-total">
+                        ${calculateItemTotal(item)}
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+
+            <aside className="order-summary">
+
+              <span className="summary-label">
+                ORDER SUMMARY
+              </span>
+
+              <h2>Ready to grow?</h2>
+
+              <div className="summary-row">
+                <span>Items</span>
+                <span>{cart.length}</span>
+              </div>
+
+              <div className="summary-row total-row">
+                <strong>Total</strong>
+
+                <strong>
+                  ${calculateTotalAmount()}
+                </strong>
+              </div>
+
+              <button
+                className="checkout-button"
+                onClick={() =>
+                  alert(
+                    'Checkout functionality can be added in the future.'
+                  )
+                }
+              >
+                Proceed to Checkout →
+              </button>
+
+              <p className="summary-note">
+                Your plants are waiting for a new home.
+              </p>
+
+            </aside>
+
+          </div>
+
+        )}
+
+      </div>
+
+    </div>
+  );
 };
 
 export default CartItem;
-
-
