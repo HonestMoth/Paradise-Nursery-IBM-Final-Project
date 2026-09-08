@@ -30,7 +30,8 @@ With this application, users can select plants in an online plant shop and add t
 <br>
 Home screen:<br>
 
-![image](https://github.com/user-attachments/assets/4d5a768b-6c68-46f1-9875-8daea89773bd)
+<img width="933" height="493" alt="image" src="https://github.com/user-attachments/assets/cc1274bb-4def-4312-bf16-c7e01bc338df" />
+
 
 After clicking on the “Get Started” button, the selection that the user can make appears.<br>
 Examples:<br>
