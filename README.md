@@ -78,7 +78,7 @@ Course Provider: IBM<br>
 - Client: Myself
 - Project Goal: Expand the web user interface of the existing React application. Practice working with React, Redux and the Redux Toolkit.
 - Number of Project Participants: 1 (Cloned repository of IBM. Developed the rest on my own)
-- Time Period: October, 2024
+- Time Period: September, 2026
 - Industry / Area: Web Development
 - Role: Developer
 - Languages: English
@@ -105,7 +105,7 @@ If you want to visit the website: Visit the link in the GitHub repository.<br>
 If cloning / forking code: The project was developed using the IBM Cloud IDE.<br>
 Setup not tested on private IDE.<br>
 <br>
-Setup description from the course (slightly modified for my own project) in the IBM Cloud IDE:<br>
+Setup description from the course in the IBM Cloud IDE:<br>
 1. Clone repository
 2. Change terminal path to folder "paradise-nursery-shopping-cart-app". E.g.:
 ```
@@ -120,9 +120,6 @@ In IBM Cloud IDE there was an extra feature for this, where the port was entered
 ```
 npm run preview
 ```
-
-![image](https://github.com/user-attachments/assets/f9315a0a-66b6-46e3-baae-143535d662fc)
-
 5. The application can be stopped with Ctrl + C.<br>
 Step 4 must be repeated for each change to be visible.<br>
 <br>
@@ -138,12 +135,10 @@ npm run deploy
 This commits changes in the gh-pages branch and updates the website.<br>
 A success message appears in the terminal:<br>
 
-![image](https://github.com/user-attachments/assets/fab6b039-34c0-4832-a1bd-c20295485ffb)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <br>
 
 
 ## Contact
-If you have any questions, please feel free to reach out via email: christian-schwanse (at) gmx.net
+If you have any questions, please feel free to reach out via email: vinaymagar845@gmail.com
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
