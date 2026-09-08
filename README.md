@@ -36,29 +36,25 @@ Home screen:<br>
 After clicking on the “Get Started” button, the selection that the user can make appears.<br>
 Examples:<br>
 
-![image](https://github.com/user-attachments/assets/7a78f93a-ec02-46f4-aec8-2f6040c35223)
+<img width="923" height="490" alt="image" src="https://github.com/user-attachments/assets/9238ca48-3f44-4382-95c0-0f843b34e2cd" />
 
-![image](https://github.com/user-attachments/assets/f9a8bd57-291c-4200-8010-63bf7c4b63c9)
+<img width="925" height="497" alt="image" src="https://github.com/user-attachments/assets/2f316c98-7a0d-4cd5-8efc-d6443aeb3315" />
 
-![image](https://github.com/user-attachments/assets/276093d8-41e2-490c-9cb9-a3bbafab7ca9)
+<img width="929" height="497" alt="image" src="https://github.com/user-attachments/assets/e65a90f2-c037-4b43-83c8-24f11a001911" />
 
 The user receives feedback when making a selection, which improves the user experience.<br>
 See, for example, the grayed-out button on selection or the number of products in the shopping cart at the top right.
 
-![image](https://github.com/user-attachments/assets/8f2b9629-1b89-447e-a95f-0c0f57520caf)
+<img width="919" height="500" alt="image" src="https://github.com/user-attachments/assets/a7c297bd-d854-45a1-9d2c-fd39ef1b3038" />
 
 Once the selection has been made, he can display the contents by clicking on the shopping cart.<br>
 If necessary, the quantity can be increased or decreased.<br>
 
-![image](https://github.com/user-attachments/assets/0d5067e2-044f-47a7-b423-3b03c9106ce9)
-
-If the user still has requests and would like to display the product list, they can click on the “Continue Shopping” button.<br>
-
-![image](https://github.com/user-attachments/assets/3acdfd10-b960-4679-8f73-bcb714d183d1)
+<img width="926" height="479" alt="image" src="https://github.com/user-attachments/assets/2991c147-ff0d-4fbe-aa0c-284c8c8409ec" />
 
 The implementation of the checkout button was not part of the project.<br>
 To inform the user of this, an alert is displayed when the button is clicked:<br>
-![image](https://github.com/user-attachments/assets/87301988-5013-4640-95c1-980eeb931bef)
+<img width="923" height="478" alt="image" src="https://github.com/user-attachments/assets/44b6bc2e-418b-45a7-81f0-ec82973cd7df" />
 
 More is currently not possible in this application.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
